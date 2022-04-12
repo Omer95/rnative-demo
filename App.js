@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import HomeScreen from './app/screens/HomeScreen';
 import TwoButton from './app/screens/TwoButtons';
+import ChooseContacts from './app/screens/ChooseContacts';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,7 +12,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Navigator 
+      initialRouteName='home'
+      screenOptions={{headerShown: false}}>
         <Stack.Screen
           name = 'home'
           component = {HomeScreen}
@@ -20,6 +23,11 @@ export default function App() {
         <Stack.Screen
           name = 'option 1'
           component={TwoButton}
+          options = {{title: 'choose an option'}}
+        />
+        <Stack.Screen 
+          name = 'option 2'
+          component={ChooseContacts}
           options = {{title: 'choose an option'}}
         />
       </Stack.Navigator>

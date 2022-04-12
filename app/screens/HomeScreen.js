@@ -5,7 +5,10 @@ export default function HomeScreen({navigation}) {
 
     const createGroup = () => {
         console.log('creating group');
-        navigation.navigate('option 1');
+        navigation.navigate('option 1', {
+            button1: 'Calls',
+            button2: 'Calls & Text'
+        });
     }
 
     return (

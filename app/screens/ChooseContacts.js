@@ -1,28 +1,21 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { ImageBackground, StyleSheet, TouchableHighlight, Text } from 'react-native';
 
-export default function TwoButton({route, navigation}) {
-
-    const {button1, button2} = route.params;
-    const calls = () => {
-        console.log('Calls');
-        navigation.navigate('option 2');
-    }
-
-    return (
-        <ImageBackground
+const ChooseContacts = ({navigation}) => {
+    return(
+        <ImageBackground 
         style = {styles.image}
         source = {require('../assets/two-buttons.png')}
         >
             <TouchableHighlight style = {styles.calls}
-            onPress = {calls}
-            >
-                <Text style = {styles.button}>{button1}</Text>
-            </TouchableHighlight>
-            <TouchableHighlight style={styles.calls}
             onPress = {() => alert('Not yet supported')}
             >
-                <Text style = {styles.button}>{button2}</Text>
+                <Text style = {styles.button}>Favourites</Text>
+            </TouchableHighlight>
+            <TouchableHighlight style = {styles.calls}
+            onPress = {() => alert('Not yet supported')}
+            >
+                <Text style = {styles.button}>All Contacts</Text>
             </TouchableHighlight>
         </ImageBackground>
     )
@@ -49,4 +42,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white'
     }
-});
+})
+
+export default ChooseContacts
