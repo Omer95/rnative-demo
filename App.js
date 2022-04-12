@@ -1,30 +1,29 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import HomeScreen from './app/screens/HomeScreen';
+import TwoButton from './app/screens/TwoButtons';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
-    <View style = {{
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
-      <View style = {{
-        backgroundColor: 'dodgerblue',
-        width: 100,
-        height: 100
-      }}/>
-      <View style = {{
-        backgroundColor: 'tomato',
-        width: 100,
-        height: 100
-      }}/>
-      <View style = {{
-        backgroundColor: 'green',
-        width: 100,
-        height: 100
-      }}/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen
+          name = 'home'
+          component = {HomeScreen}
+          options = {{title: 'welcome'}}
+        />
+        <Stack.Screen
+          name = 'option 1'
+          component={TwoButton}
+          options = {{title: 'choose an option'}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
